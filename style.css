@@ -240,4 +240,9 @@ footer {
         height: 220px;
     }
 }
+/* TITLE COLORS */
+.hero h2,
+.about-right h2 {
+    color: magenta; /* Or use #FF00FF for exact magenta */
+}
 
