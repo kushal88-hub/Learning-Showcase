@@ -67,7 +67,7 @@ nav a::after {
     position: absolute;
     width: 0;
     height: 2px;
-    background: #ffd369;
+    background: #FF1493; /* Neon Pink underline */
     left: 0;
     bottom: -5px;
     transition: 0.3s;
@@ -78,7 +78,7 @@ nav a:hover::after {
 }
 
 /* =========================
-   DROPDOWN FIX
+   DROPDOWN
 ========================= */
 .dropdown {
     position: relative;
@@ -99,7 +99,7 @@ nav a:hover::after {
 .dropdown-content a {
     display: block;
     padding: 12px 20px;
-    color: #ffd369; /* Gold default */
+    color: #ffd369;
     text-decoration: none;
     font-size: 1rem;
 }
@@ -133,6 +133,11 @@ nav a:hover::after {
     gap: 15px;
 }
 
+.hero h2 {
+    color: #FF1493; /* Neon Pink */
+    text-shadow: 0 0 10px #FF1493;
+}
+
 /* ABOUT RIGHT */
 .about-right {
     max-width: 500px;
@@ -140,6 +145,11 @@ nav a:hover::after {
     padding: 25px;
     border-radius: 18px;
     box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+.about-right h2 {
+    color: #FF1493; /* Neon Pink */
+    text-shadow: 0 0 10px #FF1493;
 }
 
 /* =========================
@@ -150,12 +160,64 @@ nav a:hover::after {
     height: 280px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 0 40px rgba(255,211,105,0.8);
+    box-shadow: 0 0 40px rgba(255,20,147,0.8);
     transition: transform 0.4s ease;
 }
 
 .profile-pic:hover {
     transform: scale(1.12);
+}
+
+/* =========================
+   TEACHER BIO BOX
+========================= */
+.bio-box {
+    background: rgba(0,0,0,0.85);
+    padding: 25px 30px;
+    border-radius: 18px;
+    box-shadow: 0 0 25px rgba(255,20,147,0.6); /* Neon pink glow */
+    margin-top: 20px;
+    max-width: 600px;
+}
+
+.bio-box h2 {
+    color: #FF1493;
+    text-shadow: 0 0 8px #FF1493;
+    margin-bottom: 12px;
+    font-size: 1.8rem;
+}
+
+.bio-box p {
+    color: #ffd369; /* Gold text */
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* =========================
+   VIDEO SUMMARY
+========================= */
+.video-summary {
+    position: fixed;
+    top: 150px;
+    right: 30px;
+    max-width: 380px;
+    background: rgba(0,0,0,0.85);
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255,20,147,0.5);
+    z-index: 2000;
+}
+
+.video-summary h3 {
+    color: #FF1493; /* Neon Pink title */
+    margin-bottom: 10px;
+    text-shadow: 0 0 6px #FF1493;
+}
+
+.video-summary p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ffd369; /* Gold text for content */
 }
 
 /* =========================
@@ -165,7 +227,7 @@ nav a:hover::after {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #ffd369;
+    background: #FF1493;
     color: #000;
     padding: 12px 18px;
     border-radius: 12px;
@@ -182,7 +244,7 @@ nav a:hover::after {
     left: 50%;
     transform: translateX(-50%);
     background: rgba(0,0,0,0.8);
-    color: #ffd369;
+    color: #FF1493;
     padding: 20px 40px;
     border-radius: 20px;
     font-size: 1.5rem;
@@ -228,42 +290,6 @@ nav a:hover::after {
 }
 
 /* =========================
-   TITLES (TEAM & ABOUT)
-========================= */
-.hero h2,
-.about-right h2 {
-    color: #FF1493; /* Neon Pink */
-    text-shadow: 0 0 10px #FF1493;
-}
-
-/* =========================
-   VIDEO SUMMARY
-========================= */
-.video-summary {
-    position: fixed;
-    top: 150px;
-    right: 30px;
-    max-width: 380px;
-    background: rgba(0,0,0,0.85);
-    padding: 22px;
-    border-radius: 15px;
-    box-shadow: 0 0 30px rgba(255,211,105,0.5);
-    z-index: 2000;
-}
-
-.video-summary h3 {
-    color: #FF1493; /* Neon Pink title */
-    margin-bottom: 10px;
-    text-shadow: 0 0 6px #FF1493;
-}
-
-.video-summary p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #ffd369; /* Gold text for content */
-}
-
-/* =========================
    FOOTER
 ========================= */
 footer {
@@ -303,6 +329,15 @@ footer {
         position: static;
         width: 100%;
         border-radius: 10px;
+    }
+
+    .video-summary {
+        position: static;
+        margin-top: 30px;
+    }
+
+    .bio-box {
+        max-width: 90%;
     }
 }
 
