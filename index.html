@@ -1,101 +1,335 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Samtengang Central School | Learning Showcase</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header>
-    <h1>Samtengang Central School</h1>
-    <p>Learning Showcase</p>
-</header>
-
-<!-- NAVBAR -->
-<nav>
-    <a href="index.html">Home</a>
-    <a href="video.html">Group Video</a>
-
-    <div class="dropdown">
-        <button class="dropbtn">Meet the Members</button>
-        <div class="dropdown-content">
-            <a href="tshering-tobgay.html">Mr. Tshering Tobgay</a>
-            <a href="pratap-purna.html">Mr. Pratap Purna</a>
-            <a href="phub-dem.html">Ms. Phub Dem</a>
-            <a href="tshering-dema.html">Ms. Tshering Dema</a>
-            <a href="kusal-khandal.html">Mr. Kusal Khandal</a>
-        </div>
-    </div>
-</nav>
-
-<!-- HERO + ABOUT WRAPPER -->
-<div class="hero-about-wrapper">
-    <!-- HERO LEFT -->
-    <div class="hero">
-        <img src="pic2.jpg" alt="Group Photo" class="profile-pic">
-        <h2>Team Members</h2>
-    </div>
-
-    <!-- ABOUT RIGHT -->
-    <div class="about-right">
-        <h2>About This Website</h2>
-        <p>
-            This website has been created to present our learning showcase,
-            highlight our collaboration, key takeaways, suggestions and
-            feedback after attending the ten-day immersion programme
-            conducted by the Royal Academy at Pangbisa, Paro.
-        </p>
-    </div>
-</div>
-
-<footer>
-    © SCS, 2026
-</footer>
-
-<!-- NEW YEAR ELEMENTS -->
-<div id="newYearBox" onclick="celebrateNewYear()">Click Me 🎆</div>
-<div id="newYearMessage">🎉 Happy New Year 2026 🎈</div>
-<div id="confetti-container"></div>
-<div id="balloon-container"></div>
-
-<script>
-function celebrateNewYear() {
-    const msg = document.getElementById("newYearMessage");
-    const confettiBox = document.getElementById("confetti-container");
-    const balloonBox = document.getElementById("balloon-container");
-
-    msg.style.display = "flex";
-
-    // Confetti
-    for (let i = 0; i < 120; i++) {
-        const c = document.createElement("div");
-        c.className = "confetti";
-        c.style.left = Math.random() * 100 + "vw";
-        c.style.backgroundColor =
-            ["#ffd369", "#ff4d4d", "#4dd2ff", "#7CFF4D"][Math.floor(Math.random() * 4)];
-        c.style.animationDuration = (2 + Math.random() * 2) + "s";
-        confettiBox.appendChild(c);
-        setTimeout(() => c.remove(), 4000);
-    }
-
-    // Balloons
-    for (let i = 0; i < 10; i++) {
-        const b = document.createElement("div");
-        b.className = "balloon";
-        b.style.left = Math.random() * 100 + "vw";
-        b.style.backgroundColor =
-            ["#ff4d4d", "#ffd369", "#4dd2ff", "#ff7ad9"][Math.floor(Math.random() * 4)];
-        balloonBox.appendChild(b);
-        setTimeout(() => b.remove(), 5000);
-    }
-
-    setTimeout(() => {
-        msg.style.display = "none";
-    }, 5000);
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
 }
-</script>
 
-</body>
-</html>
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(10,10,10,0.65), rgba(10,10,10,0.65)),
+        url("pic1.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #f5f5f5;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(0,0,0,0.6);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #ffd369;
+}
+
+header p {
+    color: #ddd;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    background: rgba(20,20,20,0.85);
+    padding: 15px;
+}
+
+nav a,
+.dropbtn {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ffd369;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   DROPDOWN FIX
+========================= */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(30, 30, 30, 0.95);
+    min-width: 220px;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    color: #ffd369; /* Gold default */
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.dropdown-content a:hover {
+    background: #333;
+    color: #FF1493; /* Neon Pink on hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* =========================
+   HERO + ABOUT FLEX WRAPPER
+========================= */
+.hero-about-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 60px 50px;
+    flex-wrap: wrap;
+}
+
+/* HERO LEFT */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 15px;
+}
+
+/* ABOUT RIGHT */
+.about-right {
+    max-width: 500px;
+    background: rgba(0,0,0,0.75);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+/* =========================
+   PROFILE PICTURE
+========================= */
+.profile-pic {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 40px rgba(255,211,105,0.8);
+    transition: transform 0.4s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.12);
+}
+
+/* =========================
+   TEACHER PROFILE
+========================= */
+.teacher-profile {
+    text-align: center;
+}
+
+.bio-box {
+    margin-top: 25px;
+    background: rgba(0,0,0,0.8);
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255,211,105,0.4);
+}
+
+.bio-box h2 {
+    color: #FF1493; /* Neon Pink */
+    text-shadow: 0 0 8px #FF1493;
+    margin-bottom: 12px;
+}
+
+.bio-box p {
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* =========================
+   NEW YEAR ELEMENTS
+========================= */
+#newYearBox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffd369;
+    color: #000;
+    padding: 12px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 3000;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+#newYearMessage {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: #FF1493; /* Neon Pink */
+    padding: 20px 40px;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    z-index: 3000;
+}
+
+/* Confetti */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    top: -10px;
+    z-index: 2000;
+    opacity: 0.9;
+    border-radius: 3px;
+    animation-name: fallConfetti;
+    animation-timing-function: linear;
+}
+
+@keyframes fallConfetti {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* Balloons */
+.balloon {
+    position: fixed;
+    bottom: -60px;
+    width: 30px;
+    height: 40px;
+    border-radius: 50%;
+    opacity: 0.9;
+    z-index: 2000;
+    animation-name: riseBalloon;
+    animation-timing-function: linear;
+}
+
+@keyframes riseBalloon {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-110vh); }
+}
+
+/* =========================
+   TITLES (TEAM, ABOUT, TEACHER)
+========================= */
+.hero h2,
+.about-right h2 {
+    color: #FF1493; /* Neon Pink */
+    text-shadow: 0 0 10px #FF1493;
+}
+
+/* =========================
+   VIDEO SUMMARY
+========================= */
+.video-summary {
+    position: fixed;
+    top: 150px;
+    right: 30px;
+    max-width: 380px;
+    background: rgba(0,0,0,0.85);
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255,211,105,0.5);
+    z-index: 2000;
+}
+
+.video-summary h3 {
+    color: #FF1493; /* Neon Pink title */
+    margin-bottom: 10px;
+    text-shadow: 0 0 6px #FF1493;
+}
+
+.video-summary p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ffd369; /* Gold content */
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(0,0,0,0.8);
+    color: #ccc;
+    margin-top: 60px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media screen and (max-width: 900px) {
+    .hero-about-wrapper {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+    }
+
+    .hero {
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-right {
+        max-width: 90%;
+        margin-top: 30px;
+    }
+
+    .profile-pic {
+        width: 220px;
+        height: 220px;
+    }
+
+    .dropdown-content {
+        position: static;
+        width: 100%;
+        border-radius: 10px;
+    }
+}
+
 
