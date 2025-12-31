@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Samtengang Central School | Learning Showcase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Samtengang Central School</h1>
+    <p>Learning Showcase</p>
+</header>
+
+<!-- NAVBAR -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="video.html">Group Video</a>
+
+    <div class="dropdown">
+        <button class="dropbtn">Meet the Members</button>
+        <div class="dropdown-content">
+            <a href="tshering-tobgay.html">Mr. Tshering Tobgay</a>
+            <a href="pratap-purna.html">Mr. Pratap Purna</a>
+            <a href="phub-dem.html">Ms. Phub Dem</a>
+            <a href="tshering-dema.html">Ms. Tshering Dema</a>
+            <a href="kusal-khandal.html">Mr. Kusal Khandal</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO + ABOUT WRAPPER -->
+<div class="hero-about-wrapper">
+    <!-- HERO LEFT -->
+    <div class="hero">
+        <img src="pic2.jpg" alt="Group Photo" class="profile-pic">
+        <h2>Team Members</h2>
+    </div>
+
+    <!-- ABOUT RIGHT -->
+    <div class="about-right">
+        <h2>About This Website</h2>
+        <p>
+            This website has been created to present our learning showcase,
+            highlight our collaboration, key takeaways, suggestions and
+            feedback after attending the ten-day immersion programme
+            conducted by the Royal Academy at Pangbisa, Paro.
+        </p>
+    </div>
+</div>
+
+<footer>
+    © SCS, 2026
+</footer>
+
+<!-- NEW YEAR ELEMENTS -->
+<div id="newYearBox" onclick="celebrateNewYear()">Click Me 🎆</div>
+<div id="newYearMessage">🎉 Happy New Year 2026 🎈</div>
+<div id="confetti-container"></div>
+<div id="balloon-container"></div>
+
+<script>
+function celebrateNewYear() {
+    const msg = document.getElementById("newYearMessage");
+    const confettiBox = document.getElementById("confetti-container");
+    const balloonBox = document.getElementById("balloon-container");
+
+    msg.style.display = "flex";
+
+    // Confetti
+    for (let i = 0; i < 120; i++) {
+        const c = document.createElement("div");
+        c.className = "confetti";
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.backgroundColor =
+            ["#ffd369", "#ff4d4d", "#4dd2ff", "#7CFF4D"][Math.floor(Math.random() * 4)];
+        c.style.animationDuration = (2 + Math.random() * 2) + "s";
+        confettiBox.appendChild(c);
+        setTimeout(() => c.remove(), 4000);
+    }
+
+    // Balloons
+    for (let i = 0; i < 10; i++) {
+        const b = document.createElement("div");
+        b.className = "balloon";
+        b.style.left = Math.random() * 100 + "vw";
+        b.style.backgroundColor =
+            ["#ff4d4d", "#ffd369", "#4dd2ff", "#ff7ad9"][Math.floor(Math.random() * 4)];
+        balloonBox.appendChild(b);
+        setTimeout(() => b.remove(), 5000);
+    }
+
+    setTimeout(() => {
+        msg.style.display = "none";
+    }, 5000);
+}
+</script>
+
+</body>
+</html>
+
